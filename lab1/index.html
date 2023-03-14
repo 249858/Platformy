@@ -12,8 +12,19 @@
 	<p id="www">strona www</p>
 	<p id="phone">numer telefonu</p>
 	
-	<button type="button" id="generate">Generuj</button> 
+	<button onclick="generateFunction()" id="generate">Generuj</button> 
 
+<script>
+	function generateFunction() {
+	  document.getElementById("firstname").innerHTML = "Jan";
+	  document.getElementById("lastname").innerHTML = "Nowak";
+	  document.getElementById("email").innerHTML = "jan.nowak@gmail.com";
+	  document.getElementById("zip").innerHTML = "91-150";
+	  document.getElementById("nip").innerHTML = "123123123";
+	  document.getElementById("www").innerHTML = "https://jan.nowak.com";
+	  document.getElementById("phone").innerHTML = "456789123";
+	}
+</script>
 
 </body>
 </html>
