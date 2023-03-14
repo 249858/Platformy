@@ -13,12 +13,12 @@
 	<p id="phone">numer telefonu</p>
 	
 
-	<button id="button" onclick="generateFunction1(); generateFunction2();"> Generuj </button>
+	<button id="button" onclick="generateFunction1();"> Generuj </button>
 	
 
 <script>
 	function generateFunction1() {
-	  document.getElementById("firstname").innerHTML = "Jan";
+	  document.getElementById("firstname").innerHTML = "Jan", "Ala";
 	  document.getElementById("lastname").innerHTML = "Nowak";
 	  document.getElementById("email").innerHTML = "jan.nowak@gmail.com";
 	  document.getElementById("zip").innerHTML = "91-150";
@@ -27,19 +27,11 @@
 	  document.getElementById("phone").innerHTML = "456789123";
 	}
 	
-	function generateFunction2() {
-	  document.getElementById("firstname").innerHTML = "Ala";
-	  document.getElementById("lastname").innerHTML = "Kowalska";
-	  document.getElementById("email").innerHTML = "jan.nowak@gmail.com";
-	  document.getElementById("zip").innerHTML = "91-150";
-	  document.getElementById("nip").innerHTML = "123123123";
-	  document.getElementById("www").innerHTML = "https://jan.nowak.com";
-	  document.getElementById("phone").innerHTML = "456789123";
-	}
+
 </script>
 
-<p>Szacowany procent wykonania zadania: </p>
-<p>Najtrudniejsze: </p>
+<p>Szacowany procent wykonania zadania: 30% </p>
+<p>Najtrudniejsze: generowanie kolejnych zestawów danych, dodanie weryfikacji wprowadzanych danych</p>
 
 </body>
 </html>
