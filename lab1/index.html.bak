@@ -17,7 +17,6 @@
 <script>
 	function generateFunction() {
 	  document.getElementById("firstname").innerHTML = "Jan";
-	  document.getElementById("firstname").innerHTML = "Ala";
 	  document.getElementById("lastname").innerHTML = "Nowak";
 	  document.getElementById("email").innerHTML = "jan.nowak@gmail.com";
 	  document.getElementById("zip").innerHTML = "91-150";
