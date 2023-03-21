@@ -28,10 +28,10 @@
 			var nipy = ["123-456-78-90", "234-567-89-01", "345678-9012", "111", "567-890-12-34"];
 			var strony = ["https://www.wikipedia.org","https://example.org", "http://", "example", "example.gov"];
 			var telefony = ["ddd123456789", "234s567890", "345678901", "456789012", "567890123"];
-			var adresy_ipv4 = [" 104.0.12.126", " 191.0.2.146", "192.100.2.146", " 192.0.2.1", " 178.0.2.210"];
-			var sciezkaWindowsLower = ["C:\windows\temp", "d:\msdos", "C:\users\studeent", "", ""];
+			var adresy_ipv4 = [" 104.0.12.126", " 191.0.2.146", "192.100.2.146", "192.0.2.1", "178.0.2.210"];
+			/*var sciezkaWindowsLower = ["C:\windows\temp", "d:\msdos", "C:\users\studeent", "C:\", "C:\"];
 			var sciezkaWindowsAll = ["C:\Windows\Temp", "d:\msdos", "C:\Users\Studeent", "", ""];
-			var linuxPath = ["/etc/passwd", "/etc/hosts", "", "", ""];
+			var linuxPath = ["/etc/passwd", "/etc/hosts", "", "", ""];*/
 
 			var losoweImie = imiona[Math.floor(Math.random() * imiona.length)];
 			var losoweNazwisko = nazwiska[Math.floor(Math.random() * nazwiska.length)];
@@ -41,9 +41,9 @@
 			var losowaStrona = strony[Math.floor(Math.random() * strony.length)];
 			var losowyTelefon = telefony[Math.floor(Math.random() * telefony.length)];
 			var losowyAdresyIpv4 = adresy_ipv4[Math.floor(Math.random() * adresy_ipv4.length)];
-			var losWinLow = sciezkaWindowsLower[Math.floor(Math.random() * sciezkaWindowsLower.length)];
-			var losWinLow = sciezkaWindowsAll[Math.floor(Math.random() * sciezkaWindowsAll.length)];
-			var losowaLinuxPath = linuxPath[Math.floor(Math.random() * linuxPath.length)];
+			/*var losWinLow = sciezkaWindowsLower[Math.floor(Math.random() * sciezkaWindowsLower.length)];
+			/*var losWinAll = sciezkaWindowsAll[Math.floor(Math.random() * sciezkaWindowsAll.length)];
+			var losowaLinuxPath = linuxPath[Math.floor(Math.random() * linuxPath.length)];*/
 
 			document.getElementById("firstname").value = losoweImie;
 			document.getElementById("lastname").value = losoweNazwisko;
@@ -53,24 +53,24 @@
 			document.getElementById("webpage").value = losowaStrona;
 			document.getElementById("phone").value = losowyTelefon;
 			document.getElementById("ipv4").value = losowyAdresyIpv4;
-			document.getElementById("winpath1").value = losowyAdresyIpv4;
-			document.getElementById("winpath2").value = losowyAdresyIpv4;
-			document.getElementById("linuxpath").value = losowyAdresyIpv4;
+			document.getElementById("winpath1").value = losWinLow;
+			/*document.getElementById("winpath2").value = losWinAll;
+			document.getElementById("linuxpath").value = losowaLinuxPath;*/
 
 		}
 	</script>
 </head>
 <body>
-	<h1>Lab1:</h1>
+	<h1>Lab2:</h1>
 	
 	<div>
-		<a href="htttps://249858.github.io/Platformy/lab1">html</a>
+		<a href="htttps://249858.github.io/Platformy/lab2">html</a>
 		<a href="https://github.com/249858/Platformy">kod</a>
 	</div>
 
 	<table>
 	  <tr>
-		<td><label for="firstname">Imię:</label></td>
+		<td>Imię:</label></td>
 		<td><input type="text" id="firstname" name="firstname"></td>
 	  </tr>
 	  <tr>
@@ -97,23 +97,11 @@
 		<td>Numer telefonu:</td>
 		<td><input type="tel" id="phone" name="phone" pattern="[0-9]{9}"></td>
 	  </tr>
-	  	  <tr>
+	  <tr>
 		<td>Numer ipv4:</td>
 		<td><input type="text" id="ipv4" name="ipv4"></td>
 	  </tr>
-	  <tr>
-		<td>Winpath lowercase:</td>
-		<td><input type="text" id="winpath1" name="winpath1"></td>
-	  </tr>
-	  <tr>
-		<td>Winpath All:</td>
-		<td><input type="text" id="winpath2" name="winpath2"></td>
-	  </tr>
-	  	  <tr>
-		<td>Linux path:</td>
-		<td><input type="text" id="linuxpath" name="linuxpath"></td>
-	  </tr>
-	  <tr>
+
 		<td></td>
 		<td><button onclick="generate()">Generuj</button></td>
 	  </tr>
