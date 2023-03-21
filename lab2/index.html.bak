@@ -106,6 +106,13 @@
 		<td><button onclick="generate()">Generuj</button></td>
 	  </tr>
 	</table>
+	
+	
+Ocena realizacji zadania: 50%.
+Nie udało się wykonać:
+ - scieżki windows lowercase,
+ - ścieżki windows allcase,
+ - linux path.
 
 
 </body>
