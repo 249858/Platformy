@@ -16,14 +16,6 @@
 		  height: 50px;
 		}
 		
-		adres ipv4 (o id="ipv4")
- strona www (o id="webpage")
- adres email (o id="email")
- scieżka windows lowercase (o id="winpath1") - ścieżka litera dysku:\katalog systemu (windows, winnt, win, dos, msdos)\katalog podrzędny (np. C:\windows\temp lub d:\msdos).
-ścieżka windows allcase (o id="winpath2") - to samo, co w poprzednim punkcie, ale ma pozwalać na użycie zarówno dużych, jak i małych liter (Windows,windows,WinDowS)
- linux path  (o id="linuxpath") - ścieżka do pliku w katalogu /etc/ (np. /etc/passwd, /etc/hosts, itp.)
- numer telefonu (o id="phone")
-		
 
 
 	</style>
@@ -104,6 +96,22 @@
 	  <tr>
 		<td>Numer telefonu:</td>
 		<td><input type="tel" id="phone" name="phone" pattern="[0-9]{9}"></td>
+	  </tr>
+	  	  <tr>
+		<td>Numer ipv4:</td>
+		<td><input type="text" id="ipv4" name="ipv4"></td>
+	  </tr>
+	  <tr>
+		<td>Winpath lowercase:</td>
+		<td><input type="text" id="winpath1" name="winpath1"></td>
+	  </tr>
+	  <tr>
+		<td>Winpath All:</td>
+		<td><input type="text" id="winpath2" name="winpath2"></td>
+	  </tr>
+	  	  <tr>
+		<td>Linux path:</td>
+		<td><input type="text" id="linuxpath" name="linuxpath"></td>
 	  </tr>
 	  <tr>
 		<td></td>
