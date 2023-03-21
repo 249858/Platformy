@@ -99,19 +99,19 @@
 	  </tr>
 	  	  <tr>
 		<td>Numer ipv4:</td>
-		<td><input type="text" id="nip" name="nip" pattern="[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}"></td>
+		<td><input type="text" id="ipv4" name="ipv4"></td>
 	  </tr>
 	  <tr>
 		<td>Winpath lowercase:</td>
-		<td><input type="url" id="webpage" name="www" pattern="^(http[s]*://|www\.)?([a-zA-Z0-9-]+\.[0-9a-zA-Z]+)([/]\w)*$"></td>
+		<td><input type="text" id="winpath1" name="winpath1"></td>
 	  </tr>
 	  <tr>
 		<td>Winpath All:</td>
-		<td><input type="tel" id="phone" name="phone" pattern="[0-9]{9}"></td>
+		<td><input type="text" id="winpath2" name="winpath2"></td>
 	  </tr>
 	  	  <tr>
 		<td>Linux path:</td>
-		<td><input type="tel" id="phone" name="phone" pattern="[0-9]{9}"></td>
+		<td><input type="text" id="linuxpath" name="linuxpath"></td>
 	  </tr>
 	  <tr>
 		<td></td>
