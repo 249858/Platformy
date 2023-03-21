@@ -105,8 +105,8 @@
 		<td>Linux path:</td>
 		<td><input type="text" id="linuxpath" name="linuxpath"></td>
 	  </tr>
-	  </tr>
-
+	  
+	  <tr>
 		<td></td>
 		<td><button onclick="generate()">Generuj</button></td>
 	  </tr>
