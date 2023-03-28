@@ -11,10 +11,12 @@
 			border: none;
 		}
 		
-		td {
+		table, td {
 		  width: 100px;
 		  height: 50px;
+		   border: 1px solid black;
 		}
+		
 	</style>
 	<script>
 		function generate() {
@@ -61,15 +63,17 @@
 			
 			const fname = document.getElementById("firstname");
 			const sname = document.getElementById("lastname");
+			const email = document.getElementById("email");
 			const zcode = document.getElementById("zip");
 			const ncode = document.getElementById("nip");
 			const telnum = document.getElementById("phone");
 			
-			var row = fname.insertRow(0);
-			var row = sname.insertRow(1);
-			var row = zcode.insertRow(2);
-			var row = ncode.insertRow(3);
-			var row = telnum.insertRow(4);
+			var row1 = fname.insertRow(0);
+			var row2 = sname.insertRow(1);
+			var row3 = email.insertRow(2);
+			var row4 = zcode.insertRow(3);
+			var row5 = ncode.insertRow(4);
+			var row6 = telnum.insertRow(5);
 			
 			
 			
@@ -152,6 +156,10 @@
 	  <tr>
 		<td><label for="lastname">Nazwisko:</td>
 		<td><input type="text" id="lastname" name="lastname" pattern="[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ]{2,30}"></td>
+	  </tr>
+	  <tr>
+		<td><label for="email">Email:</td>
+		<td><input type="email" id="email" name="email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$+\/"></td>
 	  </tr>
 	  <tr>
 		<td><label for="zip">Kod pocztowy:</td>
