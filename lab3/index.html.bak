@@ -60,6 +60,7 @@
 		function addToTable() { 
 		
 			var tabela = document.getElementById("clients_data_table");
+			let row = tabela.insertRow(-1);
 			
 			const fname = document.getElementById("firstname");
 			const sname = document.getElementById("lastname");
