@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Losowanie imienia i nazwiska do pól tekstowych</title>
+	<title>Lab3</title>
 	<meta charset="UTF-8">
 	<style>
 		input:invalid {
