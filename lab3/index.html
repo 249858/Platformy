@@ -60,6 +60,7 @@
 		function addToTable() { 
 		
 			var tabela = document.getElementById("clients_data_table");
+			let row = tabela.insertRow(-1);
 			
 			const fname = document.getElementById("firstname");
 			const sname = document.getElementById("lastname");
@@ -75,6 +76,8 @@
 			var row5 = ncode.insertRow(4);
 			var row6 = telnum.insertRow(5);
 			
+			
+			row1.innerText = fname;
 			
 			
 			
@@ -151,7 +154,7 @@
 		</tr>
 	  <tr>
 		<td><label for="firstname">Imię:</label></td>
-		<td>row1</td>
+		<td><input type="text" id="firstname" name="firstname" pattern="[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ]{2,30}"></td>
 	  </tr>
 	  <tr>
 		<td><label for="lastname">Nazwisko:</td>

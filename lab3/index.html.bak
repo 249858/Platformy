@@ -76,6 +76,8 @@
 			var row6 = telnum.insertRow(5);
 			
 			
+			row1.innerText = fname;
+			
 			
 			
 			
