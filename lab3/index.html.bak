@@ -61,6 +61,8 @@
 			const zcode = document.getElementById("zip");
 			const ncode = document.getElementById("nip");
 			const telnum = document.getElementById("phone");
+			
+			fname = losoweImie;
 		}
 	</script>
 </head>
