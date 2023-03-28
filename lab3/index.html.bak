@@ -56,17 +56,24 @@
 		}
 		
 		function addToTable() { 
+		
+			var tabela = document.getElementById("clients_data_table");
+			
 			const fname = document.getElementById("firstname");
 			const sname = document.getElementById("lastname");
 			const zcode = document.getElementById("zip");
 			const ncode = document.getElementById("nip");
 			const telnum = document.getElementById("phone");
 			
-			fname = losoweImie;
-			sname = losoweNazwisko;
-			zcode = losowyZip;
-			ncode = losowyNip;
-			telnum = losowyTelefon;
+			var row = fname.insertRow(0);
+			var row = sname.insertRow(1);
+			var row = zcode.insertRow(2);
+			var row = ncode.insertRow(3);
+			var row = telnum.insertRow(4);
+			
+			
+			
+			
 			
 			
 		}
