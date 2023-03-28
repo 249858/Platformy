@@ -54,12 +54,18 @@
 			document.getElementById("pathB").value = losowyPathB;
 			document.getElementById("unix").value = losowyUnix;	
 		}
+		
+		function addToTable() {
+		
+		}
 	</script>
 </head>
 <body>
 	<h1>Lab3:</h1>
 
 	<table>
+		<th>Dane:</th>
+		<th>Wartości:</th>
 	  <tr>
 		<td><label for="firstname">Imię:</label></td>
 		<td><input type="text" id="firstname" name="firstname" pattern="[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ]{2,30}"></td>
@@ -105,9 +111,10 @@
 		<td><label for="unix">Unix path:</td>
 		<td><input type="text" id="unix" name="unix" pattern="^\/etc\/([A-Za-z]+)?$"></td>
 	  </tr>
-
-
 		<td><button onclick="generate()">Generuj</button></td>
+	  </tr>
+	  </tr>
+		<td><button onclick="addToTable()" id="add_data">Dodaj</button></td>
 	  </tr>
 	</table>
 
