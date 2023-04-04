@@ -153,6 +153,17 @@
 	window.msIDBTransaction;
 	window.IDBKeyRange = window.IDBKeyRange || 
 	window.webkitIDBKeyRange || window.msIDBKeyRange
+	
+	const request = indexedDB.open("DATABASE", 1);
+      request.onsuccess = function (){
+         document.write("Database created successfully...")
+      }
+      request.onerror = function(){
+         document.write("database creation error");
+      }
+      request.onupgradeneeded = function(event){
+         var db = event.target.result;
+      }
 
 	if (!window.indexedDB) {
 	window.alert("Your browser doesn't support a stable version of IndexedDB.")
