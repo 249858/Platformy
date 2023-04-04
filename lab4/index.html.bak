@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Lab3</title>
-	<meta charset="UTF-8">
-	<style>
+  <head>
+    <meta charset="UTF-8">
+    <title>Lab 4</title>
+		<style>
 		input:invalid {
 			border: 1px solid red;
 		}
@@ -11,174 +11,144 @@
 			border: none;
 		}
 		
-		table, td {
+		td {
 		  width: 100px;
 		  height: 50px;
-		   border: 1px solid black;
 		}
-		
 	</style>
-	<script>
-		function generate() {
-			var imiona = ["Adam", "Ewa", "Kasia", "Michał", "Tomasz", "Marta"];
-			var nazwiska = ["Kowalski", "Nowak", "Lewandowska", "Wójcik", "Mazur", "Kaczmarek"];
-			var majle = ["adam.kowalski@example.com", "ewa.nowak@example.com", "kasia.lewandowska@example.com", "michal.wojcik@example.com", "tomasz.mazur@example.com", "marta.kaczmarek@example.com"];
-			var zipy = ["00-001", "01-234", "12-345", "23-456", "34-567", "91-333"];
-			var nipy = ["123-456-78-90", "234-567-89-01", "345-678-90-12", "456-789-01-23", "567-890-12-34", "123-123-11-14"];
-			var strony = ["https://wikipedia.org","https://example.org", "http://strona.com", "https://p.lodz.pl/", "https://weeia.edu.p.lodz.pl/", "https://sport.tvp.pl/"];
-			var telefony = ["123456789", "234567890", "345678901", "456789012", "567890123", "567890124"];
-			var adresyIP = ["192.10.24.45", "14.10.24.45", "192.10.24.45", "192.10.24.45", "192.10.24.45", "192.10.24.45"];
-			var pathA = ["c:\\windows\\temp", "c:\\windows\\temp", "c:\\win\\documents", "c:\\windows\\temp", "c:\\windows\\temp"];
-			var pathB = ["C:\\Users\\username\\Documents", "C:\\Windows\\Temp", "C:\\Win\\Temp", "C:\\Windows\\Temp", "C:\\Windows\\Temp", "C:\\Windows\\System32"];
-			var unixPath = ["\/etc\/hosts", "\/etc\/passwd", "\/var\/log\/syslog", "\/usr\/share\/dict\/words", "\/var\/log\/messages"];
-			
-			var losoweImie = imiona[Math.floor(Math.random() * imiona.length)];
-			var losoweNazwisko = nazwiska[Math.floor(Math.random() * nazwiska.length)];
-			var losowyMejl = majle[Math.floor(Math.random() * majle.length)];
-			var losowyZip = zipy[Math.floor(Math.random() * zipy.length)];
-			var losowyNip = nipy[Math.floor(Math.random() * nipy.length)];
-			var losowaStrona = strony[Math.floor(Math.random() * strony.length)];
-			var losowyTelefon = telefony[Math.floor(Math.random() * telefony.length)];
-			var losowyAdresIP = adresyIP[Math.floor(Math.random() * adresyIP.length)];
-			var losowyPathA = pathA[Math.floor(Math.random() * pathA.length)];
-			var losowyPathB = pathB[Math.floor(Math.random() * pathB.length)];
-			var losowyUnix = unixPath[Math.floor(Math.random() * unixPath.length)];
+  </head>
+  <body>
+    <form>
+      <label>Imię: <input type="text" id="firstname" name="firstname" pattern="[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ]{2,30}"></label><br>
+      <label>Nazwisko: <input type="text" id="lastname" name="lastname" pattern="[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ]{2,30}"></label><br>
+      <label>Email: <input type="text" id="email" name="email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"></label><br>
+      <label>Kod pocztowy: <input type="text" id="zip" name="zip" pattern="[0-9]{2}-[0-9]{3}"></label><br>
+      <label>NIP: <input type="text" id="nip" name="nip" pattern="[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}"></label><br>
+      <label>Telefon: <input type="text" id="phone" name="phone" pattern="[0-9]{9}"></label><br>
+	  <label>Strona WWW:<input type="url" id="www" name="www" pattern="^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$"></label></br>
+	  <label>Adres IP:<input type="text" id="ipv4" name="ipv4" pattern="^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$"></label></br>
+	  <label>Path lowercase: <input type="text" id="winpath1" name="winpath1" pattern="^[a-z]:\\([w][i][n][d][o][w][s]|[w][i][n][n][t]|[w][i][n]|[d][o][s]|[m][s][d][o][s])(\\[A-z]+)?$"></label></br>
+	  <label>Path allcase: <input type="text" id="winpath2" name="winpath2" pattern="^[A-Z]:\\([Ww][Ii][Nn][Dd][Oo][Ww][Ss]|[Ww][Ii][Nn][Nn][Tt]|[Ww][Ii][Nn]|[Dd][Oo][Ss]|[Mm][Ss][Dd][Oo][Ss])(\\[A-z]+)?{0,1}$"></label></br>
+	  <label>Linux path: <input type="text" id="linuxpath" name="linuxpath" pattern="^\/etc\/[A-Za-z\/]+$"></label></br>
+	  
+	  <button type="button" id="generate" onclick="generateData()">Generuj</button>
+	  <button type="button" id="add_data" onclick="addData()">Dodaj</button>
+	  <button type="button" id="save_data" onclick="saveData()">Zapisz</button>
+	  <button type="button" id="load_data" onclick="loadData()">Wczytaj</button>
+    </form>
+    <table id="clients_data_table">
+      <thead>
+        <tr>
+          <th>Imię</th>
+          <th>Nazwisko</th>
+          <th>Email</th>
+          <th>Kod pocztowy</th>
+          <th>NIP</th>
+          <th>Telefon</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+    
+    <script>
+      const generateDataButton = document.getElementById("generate");
+      const addDataButton = document.getElementById("add_data");
+      const tableBody = document.querySelector("#clients_data_table tbody");
+      
+		document.getElementById("firstname").value = "";
+		document.getElementById("lastname").value = "";
+		document.getElementById("email").value = "";
+		document.getElementById("zip").value = "";
+		document.getElementById("nip").value = "";
+		document.getElementById("phone").value = "";
+		document.getElementById("www").value = "";
+		document.getElementById("ipv4").value = "";
+		document.getElementById("winpath1").value = "";
+		document.getElementById("winpath2").value = "";
+		document.getElementById("linuxpath").value = "";
 
-			document.getElementById("firstname").value = losoweImie;
-			document.getElementById("lastname").value = losoweNazwisko;
-			document.getElementById("email").value = losowyMejl;
-			document.getElementById("zip").value = losowyZip;
-			document.getElementById("nip").value = losowyNip;
-			document.getElementById("www").value = losowaStrona;
-			document.getElementById("phone").value = losowyTelefon;
-			document.getElementById("ipv4").value = losowyAdresIP;
-			document.getElementById("pathA").value = losowyPathA;
-			document.getElementById("pathB").value = losowyPathB;
-			document.getElementById("unix").value = losowyUnix;	
-		}
-		
-		function addToTable() { 
-		
-			var tabela = document.getElementById("clients_data_table");
-			let row = tabela.insertRow(-1);
+      function generateData() {
+	  
+	  		var firstnames = ["Adam", "Ewa", "Kasia", "Michał", "Tomasz", "Marta", "123"];
+			var lastnames = ["Kowalski", "Nowak", "Lewandowska", "Wójcik", "Mazur", "Kaczmarek", "456"];
+			var emails = ["adam.kowalski@example.com", "ewa.nowak@example.com", "kasia.lewandowska@example.com", "michal.wojcik@example.com", "tomasz.mazur@example.com", "marta.kaczmarek@example.com", "example#example.com"];
+			var zips = ["00-001", "01-234", "12-345", "23-456", "34-567", "91-333", "00000"];
+			var nips = ["123-456-78-90", "234-567-89-01", "345-678-90-12", "456-789-01-23", "567-890-12-34", "123-123-11-14", "123 123 11 14"];
+			var phones = ["123456789", "234567890", "345678901", "456789012", "567890123", "567890124", "abcdefghi"];
+			var webSites = ["https://wikipedia.org","https://example.org", "http://strona.com", "https://p.lodz.pl/", "https://weeia.edu.p.lodz.pl/", "https://sport.tvp.pl/", "example.com"];
+			var IPaddresses = ["192.10.24.45", "14.10.24.45", "12.10.17.55", "222.20.13.14", "65.41.19.18", "158.45.36.12", "abc.bc.ade.gh"];
+			var winPathLow = ["c:\\windows\\temp", "c:\\windows\\temp", "c:\\win\\documents", "c:\\windows\\temp", "c:\\windows\\temp", "C:\\Windows\\Temp"];
+			var winPathAll = ["C:\\Users\\username\\Documents", "C:\\Windows\\Temp", "C:\\Win\\Temp", "C:\\Windows\\Temp", "C:\\Windows\\Temp", "C:\\Windows\\System32", "0"];
+			var linuxPaths = ["\/etc\/hosts", "\/etc\/passwd", "\/var\/log\/syslog", "\/usr\/share\/dict\/words", "\/var\/log\/messages", "23"];
 			
-			const fname = document.getElementById("firstname");
-			const sname = document.getElementById("lastname");
-			const email = document.getElementById("email");
-			const zcode = document.getElementById("zip");
-			const ncode = document.getElementById("nip");
-			const telnum = document.getElementById("phone");
-			
-			let row1 = fname.insertRow(0);
-			let row2 = sname.insertRow(1);
-			let row3 = email.insertRow(2);
-			let row4 = zcode.insertRow(3);
-			let row5 = ncode.insertRow(4);
-			let row6 = telnum.insertRow(5);
-			
-			
-			row1.innerText = fname;
-			
-			
-			
-			
-			
-		}
-	</script>
-</head>
-<body>
-	<h1>Lab3:</h1>
+			var randomFirstname = firstnames[Math.floor(Math.random() * firstnames.length)];
+			var randomLastname = lastnames[Math.floor(Math.random() * lastnames.length)];
+			var randomEmail = emails[Math.floor(Math.random() * emails.length)];
+			var randomZip = zips[Math.floor(Math.random() * zips.length)];
+			var randomNip = nips[Math.floor(Math.random() * nips.length)];
+			var randomPhone = phones[Math.floor(Math.random() * phones.length)];
+			var randomWWW = webSites[Math.floor(Math.random() * webSites.length)];
+			var randomIPaddress = IPaddresses[Math.floor(Math.random() * IPaddresses.length)];
+			var randomWinpath1 = winPathLow[Math.floor(Math.random() * winPathLow.length)];
+			var randomWinpath2 = winPathAll[Math.floor(Math.random() * winPathAll.length)];
+			var randomLinuxpath = linuxPaths[Math.floor(Math.random() * linuxPaths.length)];
 
-	<table>
-		<tr>
-			<th>Dane:</th>
-			<th>Wartości:</th>
-		</tr>
-	  <tr>
-		<td><label for="firstname">Imię:</label></td>
-		<td><input type="text" id="firstname" name="firstname" pattern="[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ]{2,30}"></td>
-	  </tr>
-	  <tr>
-		<td><label for="lastname">Nazwisko:</td>
-		<td><input type="text" id="lastname" name="lastname" pattern="[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ]{2,30}"></td>
-	  </tr>
-	  <tr>
-		<td><label for="email">Email:</td>
-		<td><input type="email" id="email" name="email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$+\/"></td>
-	  </tr>
-	  <tr>
-		<td><label for="zip">Kod pocztowy:</td>
-		<td><input type="text" id="zip" name="zip" pattern="[0-9]{2}-[0-9]{3}"></td>
-	  </tr>
-	  <tr>
-		<td><label for="nip">Numer NIP:</td>
-		<td><input type="text" id="nip" name="nip" pattern="[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}"></td>
-	  </tr>
-	  <tr>
-		<td><label for="www">Strona WWW:</td>
-		<td><input type="url" id="www" name="www" pattern="^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$"></td>
-	  </tr>
-	  <tr>
-		<td><label for="phone">Numer telefonu:</td>
-		<td><input type="tel" id="phone" name="phone" pattern="[0-9]{9}"></td>
-	  </tr>
-	  <tr>
-		<td><label for="ipv4">Adres IP:</td>
-		<td><input type="text" id="ipv4" name="ipv4" pattern="^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$"></td>
-	  </tr>
-	  	  <tr>
-		<td><label for="pathA">Path A:</td>
-		<td><input type="text" id="pathA" name="pathA" pattern="^[a-z]:\\([w][i][n][d][o][w][s]|[w][i][n][n][t]|[w][i][n]|[b][d][o][s]|[m][s][d][o][s])(\\[A-z]+)?$"></td>
-	  </tr>
-	  <tr>
-	  <tr>
-		<td><label for="pathB">Path B:</td>
-		<td><input type="text" id="pathB" name="pathB" pattern="^[A-Z]:\\([Ww][Ii][Nn][Dd][Oo][Ww][Ss]|[Ww][Ii][Nn][Nn][Tt]|[Ww][Ii][Nn]|[Bb][Dd][Oo][Ss]|[Mm][Ss][Dd][Oo][Ss])(\\[A-z]+)?{0,1}$"></td>
-	  </tr>
-	  <tr>
-		<td><label for="unix">Unix path:</td>
-		<td><input type="text" id="unix" name="unix" pattern="^\/etc\/([A-Za-z]+)?$"></td>
-	  </tr>
-		<td><button onclick="generate()">Generuj</button></td>
-	  </tr>
-	  </tr>
-		<td><button onclick="addToTable()" id="add_data">Dodaj</button></td>
-	  </tr>
-	</table>
-	
-	<br><br>
-		<table id="clients_data_table">
-		<tr>
-			<th>Dane:</th>
-			<th>Wartości:</th>
-		</tr>
-	  <tr>
-		<td><label for="firstname">Imię:</label></td>
-		<td><input type="text" id="firstname" name="firstname" pattern="[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ]{2,30}"></td>
-	  </tr>
-	  <tr>
-		<td><label for="lastname">Nazwisko:</td>
-		<td><input type="text" id="lastname" name="lastname" pattern="[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ]{2,30}"></td>
-	  </tr>
-	  <tr>
-		<td><label for="email">Email:</td>
-		<td><input type="email" id="email" name="email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$+\/"></td>
-	  </tr>
-	  <tr>
-		<td><label for="zip">Kod pocztowy:</td>
-		<td><input type="text" id="zip" name="zip" pattern="[0-9]{2}-[0-9]{3}"></td>
-	  </tr>
-	  <tr>
-		<td><label for="nip">Numer NIP:</td>
-		<td><input type="text" id="nip" name="nip" pattern="[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}"></td>
-	  </tr>
-	  <tr>
-		<td><label for="phone">Numer telefonu:</td>
-		<td><input type="tel" id="phone" name="phone" pattern="[0-9]{9}"></td>
-	  </tr>
-	</table>
+			document.getElementById("firstname").value = randomFirstname;
+			document.getElementById("lastname").value = randomLastname;
+			document.getElementById("email").value = randomEmail;
+			document.getElementById("zip").value = randomZip;
+			document.getElementById("nip").value = randomNip;
+			document.getElementById("phone").value = randomPhone;
+			document.getElementById("www").value = randomWWW;
+			document.getElementById("ipv4").value = randomIPaddress;
+			document.getElementById("winpath1").value = randomWinpath1;
+			document.getElementById("winpath2").value = randomWinpath2;
+			document.getElementById("linuxpath").value = randomLinuxpath;	
 
-</body>
+      }
+      
+      function addData() {
+        const name = document.getElementById("firstname").value;
+        const surname = document.getElementById("lastname").value;
+        const email = document.getElementById("email").value;
+        const postalCode = document.getElementById("zip").value;
+        const nip = document.getElementById("nip").value;
+        const phone = document.getElementById("phone").value;
+        
+        const row = document.createElement("tr");
+        
+        const nameCell = document.createElement("td");
+        nameCell.textContent = name;
+        row.appendChild(nameCell);
+        
+        const surnameCell = document.createElement("td");
+        surnameCell.textContent = surname;
+        row.appendChild(surnameCell);
+        
+        const emailCell = document.createElement("td");
+        emailCell.textContent = email;
+        row.appendChild(emailCell);
+        
+        const postalCodeCell = document.createElement("td");
+        postalCodeCell.textContent = postalCode;
+        row.appendChild(postalCodeCell);
+        
+        const nipCell = document.createElement("td");
+        nipCell.textContent = nip;
+        row.appendChild(nipCell);
+        
+        const phoneCell = document.createElement("td");
+        phoneCell.textContent = phone;
+        row.appendChild(phoneCell);
+        
+        tableBody.appendChild(row);
+      }
+	  
+	  
+	  
+
+      
+    </script>
+  </body>
 </html>
-
-
