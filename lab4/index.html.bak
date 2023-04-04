@@ -166,7 +166,14 @@
 	function saveData() {
 		var request = db.transaction(["tableData"], "readwrite")
 	   .objectStore("tableData")
-	   .add({  });
+	   .add({ 
+			firstname: formElements[0].value,
+            lastname: formElements[1].value,
+            email: formElements[2].value,
+			zip: formElements[3].value,
+			nip: formElements[4].value,
+			phone: formElements[5].value
+	   });
 	   
 	   request.onsuccess = function(event) {
 		  alert("Data has been added to your database.");

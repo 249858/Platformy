@@ -180,12 +180,31 @@
 	   };
 	   
 	   request.onerror = function(event) {
-		  alert("Unable to add data! ");
+		  alert("Unable to add data!");
 	   }
     }
 	  
 	function loadData() {
-	  }
+		var request = db.transaction(["tableData"], "readwrite")
+	   .objectStore("tableData")
+	   .get({ 
+			firstname: formElements[0].value,
+            lastname: formElements[1].value,
+            email: formElements[2].value,
+			zip: formElements[3].value,
+			nip: formElements[4].value,
+			phone: formElements[5].value
+	   });
+	   
+	   request.onsuccess = function(event) {
+		  alert("Data has been read from your database.");
+	   };
+	   
+	   request.onerror = function(event) {
+		  alert("Unable to read data!");
+	   }
+	}
+
 	  
 	  
 	  
