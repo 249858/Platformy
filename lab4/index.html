@@ -154,29 +154,30 @@
 	window.IDBKeyRange = window.IDBKeyRange || 
 	window.webkitIDBKeyRange || window.msIDBKeyRange
 	
-	const request = indexedDB.open("DATABASE", 1);
-      request.onsuccess = function (){
-         document.write("Database created successfully...")
-      }
-      request.onerror = function(){
-         document.write("database creation error");
-      }
-      request.onupgradeneeded = function(event){
-         var db = event.target.result;
-      }
+	
+	
+	let db;
+	const request = indexedDB.open("DATABASE");
+ 
+	request.onerror = function(){
+	 document.write("database creation error");
+	}
+	request.onupgradeneeded = function(event){
+	 var db = event.target.result;
+	}
 
 	if (!window.indexedDB) {
 	window.alert("Your browser doesn't support a stable version of IndexedDB.")
 	}
 	
-	const tableData = [
+	const DATABASE = [
 		{ firstname: "Agata", lastname: "Wiśniewska", email: "agata.wisniewska@example.com", zip: "78-852", nip: "444-555-77-99", telefon: "987698524"	},
 	];
 	
 	  
 	function saveData() {
-		var request = db.transaction(["tableData"], "readwrite")
-	   .objectStore("tableData")
+		var request = db.transaction(["DATABASE"], "readwrite")
+	   .objectStore("DATABASE")
 	   .add({ 
 			firstname: formElements[0].value,
             lastname: formElements[1].value,
@@ -196,8 +197,8 @@
     }
 	  
 	function loadData() {
-		var request = db.transaction(["tableData"], "readwrite")
-	   .objectStore("tableData")
+		var request = db.transaction(["DATABASE"], "readwrite")
+	   .objectStore("DATABASE")
 	   .get({ 
 			firstname: formElements[0].value,
             lastname: formElements[1].value,
