@@ -52,24 +52,6 @@
     </table>
     
     <script>
-	
-	window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || 
-	window.msIndexedDB;
-
-	window.IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || 
-	window.msIDBTransaction;
-	window.IDBKeyRange = window.IDBKeyRange || 
-	window.webkitIDBKeyRange || window.msIDBKeyRange
-
-	if (!window.indexedDB) {
-	window.alert("Your browser doesn't support a stable version of IndexedDB.")
-	}
-	
-	
-	const tableData = [
-		{ firstname: "Agata", lastname: "Wiśniewska", email: "agata.wisniewska@example.com", zip: "78-852", nip: "444-555-77-99", telefon: "987698524"	},
-	];
-	
       const generateDataButton = document.getElementById("generate");
       const addDataButton = document.getElementById("add_data");
       const tableBody = document.querySelector("#clients_data_table tbody");
@@ -163,21 +145,46 @@
         tableBody.appendChild(row);
       }
 	  
-	  function saveData() {
-			  var request = db.transaction(["randomData"], "readwrite")
-		   .objectStore("randomData")
-		   .add({  });
-		   
-		   request.onsuccess = function(event) {
-			  alert("Data has been added to your database.");
-		   };
-		   
-		   request.onerror = function(event) {
-			  alert("Unable to add data! ");
-		   }
-	  }
 	  
-	  function loadData() {
+	window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || 
+	window.msIndexedDB;
+
+	window.IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || 
+	window.msIDBTransaction;
+	window.IDBKeyRange = window.IDBKeyRange || 
+	window.webkitIDBKeyRange || window.msIDBKeyRange
+
+	if (!window.indexedDB) {
+	window.alert("Your browser doesn't support a stable version of IndexedDB.")
+	}
+	
+	const tableData = [
+		{ firstname: "Agata", lastname: "Wiśniewska", email: "agata.wisniewska@example.com", zip: "78-852", nip: "444-555-77-99", telefon: "987698524"	},
+	];
+	
+	  
+	function saveData() {
+		var request = db.transaction(["tableData"], "readwrite")
+	   .objectStore("tableData")
+	   .add({ 
+			firstname: formElements[0].value,
+            lastname: formElements[1].value,
+            email: formElements[2].value,
+			zip: formElements[3].value,
+			nip: formElements[4].value,
+			phone: formElements[5].value
+	   });
+	   
+	   request.onsuccess = function(event) {
+		  alert("Data has been added to your database.");
+	   };
+	   
+	   request.onerror = function(event) {
+		  alert("Unable to add data! ");
+	   }
+    }
+	  
+	function loadData() {
 	  }
 	  
 	  
