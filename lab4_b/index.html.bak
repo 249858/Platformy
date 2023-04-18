@@ -69,12 +69,12 @@
 			const ncode = document.getElementById("nip");
 			const telnum = document.getElementById("phone");
 			
-			var row1 = fname.insertRow(0);
-			var row2 = sname.insertRow(1);
-			var row3 = email.insertRow(2);
-			var row4 = zcode.insertRow(3);
-			var row5 = ncode.insertRow(4);
-			var row6 = telnum.insertRow(5);
+			let row1 = fname.insertRow(0);
+			let row2 = sname.insertRow(1);
+			let row3 = email.insertRow(2);
+			let row4 = zcode.insertRow(3);
+			let row5 = ncode.insertRow(4);
+			let row6 = telnum.insertRow(5);
 			
 			
 			row1.innerText = fname;
