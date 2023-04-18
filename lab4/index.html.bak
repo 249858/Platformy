@@ -157,27 +157,47 @@
 	
 	
 	let db;
-	const request = indexedDB.open("DATABASE");
- 
-	request.onerror = function(){
-	 document.write("database creation error");
-	}
-	request.onupgradeneeded = function(event){
-	 var db = event.target.result;
-	}
 
-	if (!window.indexedDB) {
-	window.alert("Your browser doesn't support a stable version of IndexedDB.")
-	}
+function createDatabase() {
+
+    if (!indexedDBSupport()) throw new Error("Your browser doesn't support IndexedBD");
+
+    const request = window.indexedDB.open('DATABASE', 1);
+
+// Event handling
+    request.onerror = (e) => {
+        console.error(`IndexedDB error: ${request.errorCode}`);
+    };
+
+    request.onsuccess = (e) => {
+        console.info('Successful database connection');
+        db = request.result;
+    };
+
+   request.onupgradeneeded = (e) => {
+
+    console.info('Database created');
+
+    const db = request.result;
+
+    const objectStore = db.createObjectStore('randomData', {keyPath: 'phone'});
 	
-	const DATABASE = [
+	objectStore.createIndex("email", "email", { unique: true });
+    objectStore.createIndex("firstname", "firstname", { unique: false });
+    objectStore.createIndex("lastname", "lastname", { unique: false });
+
+};
+
+}
+	
+	const randomData = [
 		{ firstname: "Agata", lastname: "Wiśniewska", email: "agata.wisniewska@example.com", zip: "78-852", nip: "444-555-77-99", telefon: "987698524"	},
 	];
 	
 	  
 	function saveData() {
 		var request = db.transaction(["DATABASE"], "readwrite")
-	   .objectStore("DATABASE")
+	   .objectStore("randomData")
 	   .add({ 
 			firstname: formElements[0].value,
             lastname: formElements[1].value,
@@ -196,26 +216,7 @@
 	   }
     }
 	  
-	function loadData() {
-		var request = db.transaction(["tableData"], "readwrite")
-	   .objectStore("tableData")
-	   .get({ 
-			firstname: formElements[0].value,
-            lastname: formElements[1].value,
-            email: formElements[2].value,
-			zip: formElements[3].value,
-			nip: formElements[4].value,
-			phone: formElements[5].value
-	   });
-	   
-	   request.onsuccess = function(event) {
-		  alert("Data has been read from your database.");
-	   };
-	   
-	   request.onerror = function(event) {
-		  alert("Unable to read data!");
-	   }
-	}
+	
 
 	  
 	  

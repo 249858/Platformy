@@ -29,8 +29,7 @@
 			var strony = ["https://www.wikipedia.org","https://example.org", "http://", "example", "example.gov"];
 			var telefony = ["ddd123456789", "234s567890", "345678901", "456789012", "567890123"];
 			
-			var sciezkaWindowsAll = ["C:\Windows\Temp", "d:\msdos", "C:\Users\Studeent", "", ""];
-			var linuxPath = ["/etc/passwd", "/etc/hosts", "", "", ""];
+
 
 			var losoweImie = imiona[Math.floor(Math.random() * imiona.length)];
 			var losoweNazwisko = nazwiska[Math.floor(Math.random() * nazwiska.length)];
@@ -41,7 +40,7 @@
 			var losowyTelefon = telefony[Math.floor(Math.random() * telefony.length)];
 			var losowyAdresyIpv4 = adresy_ipv4[Math.floor(Math.random() * adresy_ipv4.length)];
 			
-			var losowaLinuxPath = linuxPath[Math.floor(Math.random() * linuxPath.length)];
+	
 
 			document.getElementById("firstname").value = losoweImie;
 			document.getElementById("lastname").value = losoweNazwisko;
@@ -52,7 +51,7 @@
 			document.getElementById("phone").value = losowyTelefon;
 			document.getElementById("ipv4").value = losowyAdresyIpv4;
 
-			document.getElementById("linuxpath").value = losowaLinuxPath;
+			
 
 		}
 	</script>
@@ -61,7 +60,7 @@
 	<h1>Lab2:</h1>
 	
 	<div>
-		<a href="htttps://249858.github.io/Platformy/lab2">html</a>
+		<a href="https://249858.github.io/Platformy/lab2">html</a>
 		<a href="https://github.com/249858/Platformy">kod</a>
 	</div>
 
@@ -99,10 +98,7 @@
 		<td><input type="text" id="ipv4" name="ipv4"></td>
 	  </tr>
 
-	  <tr>
-		<td>Linux path:</td>
-		<td><input type="text" id="linuxpath" name="linuxpath"></td>
-	  </tr>
+
 	  
 	  <tr>
 		<td></td>
@@ -115,9 +111,9 @@
 	
 Ocena realizacji zadania: 50%.
 Nie udało się wykonać:
- - scieżki windows lowercase,
- - ścieżki windows allcase,
- - linux path.
+ - scieżki windows lowercase powodowały błąd w działaniu generowania danych,
+ - ścieżki windows allcase powodowały błąd w działaniu generowania danych,
+ - linux path nie wyswietla się.
 
 
 </body>
