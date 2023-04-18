@@ -168,6 +168,49 @@ request.onsuccess = function(event) {
   console.log("Database opened successfully");
 };
 
+// Dodanie danych do bazy
+function saveData() {
+  const transaction = db.transaction(["clients"], "readwrite");
+  const objectStore = transaction.objectStore("clients");
+
+  const client = {
+    firstname: document.getElementById("firstname").value,
+    lastname: document.getElementById("lastname").value,
+    email: document.getElementById("email").value,
+    zip: document.getElementById("zip").value,
+    nip: document.getElementById("nip").value,
+    phone: document.getElementById("phone").value,
+    www: document.getElementById("www").value,
+    ipv4: document.getElementById("ipv4").value,
+    winpath1: document.getElementById("winpath1").value,
+    winpath2: document.getElementById("winpath2").value,
+    linuxpath: document.getElementById("linuxpath").value
+  };
+
+  const request = objectStore.add(client);
+
+  request.onsuccess = function(event) {
+    console.log("Data added to the database");
+  };
+
+  request.onerror = function(event) {
+    console.log("Error adding data to the database");
+  };
+
+  transaction.oncomplete = function(event) {
+    console.log("Transaction completed: database modification finished.");
+  };
+}
+
+function clearForm() {
+  document.getElementById("#clients_data_table tbody").reset(); 
+}
+
+window.onload = function() {
+  clearForm();
+  loadData();
+}
+
 
 
 
