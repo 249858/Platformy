@@ -200,16 +200,16 @@ function saveData() {
   transaction.oncomplete = function(event) {
     console.log("Transaction completed: database modification finished.");
   };
-}
-
-function clearForm() {
+  
   document.getElementById("#clients_data_table tbody").reset(); 
-}
-
-window.onload = function() {
-  clearForm();
+  
+    clearForm();
   loadData();
 }
+
+  
+
+
 
 
 
