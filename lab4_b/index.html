@@ -213,7 +213,24 @@ window.onload = function() {
 
 
 
+// Odczytanie danych z bazy i wyświetlenie ich w tabeli
+function loadData() {
+  const objectStore = db.transaction("clients").objectStore("clients");
 
+  objectStore.openCursor().onsuccess = function(event) {
+    const cursor = event.target.result;
+    if (cursor) {
+      const row = tableBody.insertRow(-1);
+      row.insertCell(0).textContent = cursor.value.firstname;
+      row.insertCell(1).textContent = cursor.value.lastname;
+      row.insertCell(2).textContent = cursor.value.email;
+      row.insertCell(3).textContent = cursor.value.zip;
+      row.insertCell(4).textContent = cursor.value.nip;
+      row.insertCell(5).textContent = cursor.value.phone;
+      cursor.continue();
+    }
+  };
+}
 
 
 
