@@ -115,6 +115,11 @@
       }
       
       function addData() {
+	  
+	    const searchInput = document.getElementById("search").value;
+		if (searchInput) {
+			return; 
+		}
         const name = document.getElementById("firstname").value;
         const surname = document.getElementById("lastname").value;
         const email = document.getElementById("email").value;
@@ -211,6 +216,10 @@
 	}
 	
 	function editRow() {
+		const searchInput = document.getElementById("search").value;
+		if (searchInput) {
+			return; 
+		}
 		document.getElementById("accept").disabled = false;
 		tableRows = document.querySelectorAll("#clients_data_table tbody tr");
 		tableRows.forEach((row) => {
