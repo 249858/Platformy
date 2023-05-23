@@ -38,7 +38,6 @@
 	  <button type="button" id="accept" onclick="acceptData()" disabled>Akceptuj</button>
 	  <div id="searchFiled">Wyszukaj:
 		<input id="search" name="search" type="text" placeholder="Search..." />
-
 	  </div>
 	  
     </form>
@@ -377,6 +376,34 @@ function loadData() {
   
 
 
+
+function search(event) {
+  event.preventDefault();
+  const searchInput = document.getElementById("search").value.toLowerCase();
+  const rows = document.querySelectorAll("#clients_data_table tbody tr");
+
+  rows.forEach((row) => {
+    const cells = row.querySelectorAll("td");
+    let rowMatches = false;
+
+    cells.forEach((cell) => {
+      const cellText = cell.textContent.toLowerCase();
+      const match = cellText.includes(searchInput);
+
+      cell.style.display = match ? "" : "none";
+      if (match) {
+        rowMatches = true;
+      }
+    });
+
+    row.style.display = rowMatches ? "" : "none";
+  });
+
+  return false;
+}
+
+const searchInput = document.getElementById("search");
+searchInput.addEventListener("input", search);
 
 
 	  
