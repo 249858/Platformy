@@ -415,6 +415,7 @@ const searchInput = document.getElementById("search");
 searchInput.addEventListener("input", search);
 */
 
+/* Poprawa funkcjonalności z zadania 8
 function search(event) {
   event.preventDefault();
   const searchInput = document.getElementById("search").value.toLowerCase();
@@ -429,6 +430,37 @@ function search(event) {
       const match = cellText.includes(searchInput);
 
       if (match) {
+        rowMatches = true;
+      }
+    });
+
+    row.style.display = rowMatches ? "" : "none";
+  });
+
+  return false;
+}
+
+const searchInput = document.getElementById("search");
+searchInput.addEventListener("input", search);
+
+*/
+
+function search(event) {
+  event.preventDefault();
+  const searchInput = document.getElementById("search").value.toLowerCase();
+  const searchTerms = searchInput.split(" ");
+
+  const rows = document.querySelectorAll("#clients_data_table tbody tr");
+
+  rows.forEach((row) => {
+    const cells = row.querySelectorAll("td");
+    let rowMatches = false;
+
+    cells.forEach((cell) => {
+      const cellText = cell.textContent.toLowerCase();
+      const cellMatches = searchTerms.some((term) => cellText.includes(term));
+
+      if (cellMatches) {
         rowMatches = true;
       }
     });
