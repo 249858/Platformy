@@ -445,6 +445,8 @@ searchInput.addEventListener("input", search);
 
 */
 
+
+
 function search(event) {
   event.preventDefault();
   const searchInput = document.getElementById("search").value.toLowerCase();
@@ -458,14 +460,14 @@ function search(event) {
 
     cells.forEach((cell) => {
       const cellText = cell.textContent.toLowerCase();
-      const cellMatches = searchTerms.some((term) => cellText.includes(term));
+      const cellMatches = searchTerms.every((term) => cellText.includes(term));
 
       if (cellMatches) {
         rowMatches = true;
       }
     });
 
-    row.style.display = rowMatches ? "" : "none";
+    row.style.display = rowMatches && searchTerms.length > 0 ? "" : "none";
   });
 
   return false;
@@ -474,10 +476,8 @@ function search(event) {
 const searchInput = document.getElementById("search");
 searchInput.addEventListener("input", search);
 
-
-
 	  
-	  
+  
 
       
     </script>
