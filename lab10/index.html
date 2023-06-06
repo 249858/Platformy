@@ -62,6 +62,7 @@
         const fruitNameInput = document.getElementById("fruitName");
 
         addButton.addEventListener("click", function() {
+			const selectedFruit = selectElement.value;
             const newFruitName = fruitNameInput.value;
             const newOption = document.createElement("option");
             newOption.value = newFruitName;
