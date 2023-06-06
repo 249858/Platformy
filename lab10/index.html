@@ -40,6 +40,37 @@
 		<input id="search" name="search" type="text" placeholder="Search..." />
 	  </div>
 	  
+	<h1>Lista owoców</h1>
+    
+    <select id="fruitsList">
+        <option value="jablko">Jabłko</option>
+        <option value="banan">Banan</option>
+        <option value="pomarancza">Pomarańcza</option>
+        <option value="truskawka">Truskawka</option>
+        <option value="winogrono">Winogrono</option>
+    </select>
+
+    <br><br>
+
+    <input type="text" id="fruitName" placeholder="Nazwa owocu">
+
+    <button id="addFruit">Dodaj owoc</button>
+
+	<script>
+        const selectElement = document.getElementById("fruitsList");
+        const addButton = document.getElementById("addFruit");
+        const fruitNameInput = document.getElementById("fruitName");
+
+        addButton.addEventListener("click", function() {
+            const newFruitName = fruitNameInput.value;
+            const newOption = document.createElement("option");
+            newOption.value = newFruitName;
+            newOption.textContent = newFruitName;
+            selectElement.appendChild(newOption);
+            fruitNameInput.value = "";
+        });
+    </script>
+	
     </form>
     <table id="clients_data_table">
       <thead>
