@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Lab 9</title>
+    <title>Lab 10</title>
 		<style>
 		input:invalid {
 			border: 1px solid red;
@@ -42,6 +42,7 @@
 	  
 	<h1>Lista owoców</h1>
     
+     <body>
     <select id="fruitsList">
         <option value="jablko">Jabłko</option>
         <option value="banan">Banan</option>
@@ -56,22 +57,25 @@
 
     <button id="addFruit">Dodaj owoc</button>
 
-	<script>
+    <script>
         const selectElement = document.getElementById("fruitsList");
         const addButton = document.getElementById("addFruit");
         const fruitNameInput = document.getElementById("fruitName");
 
         addButton.addEventListener("click", function() {
-			const selectedFruit = selectElement.value;
             const newFruitName = fruitNameInput.value;
-            const newOption = document.createElement("option");
-            newOption.value = newFruitName;
-            newOption.textContent = newFruitName;
-            selectElement.appendChild(newOption);
-            fruitNameInput.value = "";
+
+            // Sprawdź, czy nazwa owocu nie jest pusta
+            if (newFruitName.trim() !== "") {
+                const newOption = document.createElement("option");
+                newOption.value = newFruitName;
+                newOption.textContent = newFruitName;
+                selectElement.appendChild(newOption);
+                fruitNameInput.value = "";
+            }
         });
     </script>
-	
+
     </form>
     <table id="clients_data_table">
       <thead>
@@ -200,12 +204,27 @@ function addData() {
   downButton.addEventListener("click", moveRowDown);
   downCell.appendChild(downButton);
   row.appendChild(downCell);
-
+/*
   const editCell = document.createElement("td");
   const editButton = document.createElement("button");
   editButton.classList.add("edit_row");
-  editButton.textContent = "Edit";
+  editButton.textContent = "Edytuj";
   editButton.addEventListener("click", editRow);
+  editCell.appendChild(editButton);
+  row.appendChild(editCell);
+  */
+  const editCell = document.createElement("td");
+  const editButton = document.createElement("button");
+  editButton.classList.add("edit_row");
+  editButton.textContent = "Edytuj";
+  editButton.addEventListener("click", function() {
+    document.getElementById("firstname").value = nameCell.textContent;
+    document.getElementById("lastname").value = surnameCell.textContent;
+    document.getElementById("email").value = emailCell.textContent;
+    document.getElementById("zip").value = postalCodeCell.textContent;
+    document.getElementById("nip").value = nipCell.textContent;
+    document.getElementById("phone").value = phoneCell.textContent;
+  });
   editCell.appendChild(editButton);
   row.appendChild(editCell);
 
