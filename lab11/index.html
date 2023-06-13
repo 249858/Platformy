@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Lab 10</title>
+    <title>Lab 11</title>
 		<style>
 		input:invalid {
 			border: 1px solid red;
@@ -40,42 +40,51 @@
 		<input id="search" name="search" type="text" placeholder="Search..." />
 	  </div>
 	  
-	<h1>Lista owoców</h1>
-    
-     <body>
-    <select id="fruitsList">
-        <option value="jablko">Jabłko</option>
-        <option value="banan">Banan</option>
-        <option value="pomarancza">Pomarańcza</option>
-        <option value="truskawka">Truskawka</option>
-        <option value="winogrono">Winogrono</option>
-    </select>
+<h1>Lista owoców</h1>
 
-    <br><br>
 
-    <input type="text" id="fruitName" placeholder="Nazwa owocu">
+  <select id="fruitsList">
+    <option value="jablko">Jabłko</option>
+    <option value="banan">Banan</option>
+    <option value="pomarancza">Pomarańcza</option>
+    <option value="truskawka">Truskawka</option>
+    <option value="winogrono">Winogrono</option>
+  </select>
 
-    <button id="addFruit">Dodaj owoc</button>
-	<button id="removeFruit">Usuń owoc</button>
+  <br><br>
 
-    <script>
-        const selectElement = document.getElementById("fruitsList");
-        const addButton = document.getElementById("addFruit");
-		const removeButton = document.getElementById("removeFruit");
-        const fruitNameInput = document.getElementById("fruitName");
+  <input type="text" id="fruitName" placeholder="Nazwa owocu">
 
-        addButton.addEventListener("click", function() {
-            const newFruitName = fruitNameInput.value;
+  <button id="addFruit">Dodaj owoc</button>
+  <button id="removeFruit">Usuń owoc</button>
 
-            if (newFruitName.trim() !== "") {
-                const newOption = document.createElement("option");
-                newOption.value = newFruitName;
-                newOption.textContent = newFruitName;
-                selectElement.appendChild(newOption);
-                fruitNameInput.value = "";
-            }
-        });
-    </script>
+  <script>
+    const selectElement = document.getElementById("fruitsList");
+    const addButton = document.getElementById("addFruit");
+    const removeButton = document.getElementById("removeFruit");
+    const fruitNameInput = document.getElementById("fruitName");
+
+    addButton.addEventListener("click", function() {
+      const newFruitName = fruitNameInput.value;
+
+      if (newFruitName.trim() !== "") {
+        const newOption = document.createElement("option");
+        newOption.value = newFruitName;
+        newOption.textContent = newFruitName;
+        selectElement.appendChild(newOption);
+        fruitNameInput.value = "";
+      }
+    });
+
+    removeButton.addEventListener("click", function() {
+      const selectedOptions = Array.from(selectElement.selectedOptions);
+      selectedOptions.forEach(function(option) {
+        selectElement.removeChild(option);
+      });
+    });
+  </script>
+
+
 
     </form>
     <table id="clients_data_table">
