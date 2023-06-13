@@ -56,10 +56,12 @@
     <input type="text" id="fruitName" placeholder="Nazwa owocu">
 
     <button id="addFruit">Dodaj owoc</button>
+	<button id="removeFruit">Usuń owoc</button>
 
     <script>
         const selectElement = document.getElementById("fruitsList");
         const addButton = document.getElementById("addFruit");
+		const removeButton = document.getElementById("removeFruit");
         const fruitNameInput = document.getElementById("fruitName");
 
         addButton.addEventListener("click", function() {
